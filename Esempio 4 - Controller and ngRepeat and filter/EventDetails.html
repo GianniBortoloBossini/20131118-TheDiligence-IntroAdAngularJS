@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="eventsApp">
+<head>
+    <title>Using controlle with AngularJS</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+<body>
+    <div>
+        <div ng-controller="EventController">
+            <label>Order by:</label>
+            <select ng-model="sortorder">
+                <option selected value="name">Name</option>
+                <option value="-upVoteCount">Vote</option>
+                <option value="date">Date</option>
+            </select>
+
+            <div>
+                <table class="nobordertable">
+                    <tr ng-repeat="eventsession in event.sessions | orderBy: sortorder" 
+                        ng-class-even="'sessioneven'" 
+                        ng-class-odd="'sessionodd'">
+                        <td>
+                            <table>
+                                <tr><td><input type="button" 
+                                               ng-click="UpVoteSession(eventsession)"
+                                               value="+"
+                                               class="voteButton"/></td></tr>
+                                <tr><td><label ng-bind="eventsession.upVoteCount"
+                                               class="voteLabel"/><td></td></tr>
+                                <tr><td><input type="button" 
+                                               ng-click="DownVoteSession(eventsession)" 
+                                               ng-disabled="downVoteButtonDisabled(eventsession)"
+                                               value="-"
+                                               class="voteButton"/></td></tr>
+                            </table>
+                        </td>
+                        <td>
+                            <img ng-src="{{eventsession.imageUrl}}" 
+                                 alt="{{eventsession.imageUrl}}" 
+                                 width="150" />
+                        </td>
+                        <td style="width:50px"></td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td><strong>Session:</strong></td>
+                                    <td>{{eventsession.session}}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Speaker:</strong></td>
+                                    <td>{{eventsession.speaker}}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Description:</strong></td>
+                                    <td><label ng-bind="{{eventsession.description}}" /></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Date and time:</strong></td>
+                                    <td><label ng-bind-template="{{eventsession.date}} {{eventsession.time}}" /></td>
+                                </tr>
+                                <tr style="height:20px"></tr>
+                                <tr>
+                                    <td><strong>Address:</strong></td>
+                                    <td>
+                                        <address>
+                                            <div><strong>{{eventsession.location.name}}</strong></div>
+                                            <div>{{eventsession.location.address}}</div>
+                                            <div>{{eventsession.location.zipcode}} {{eventsession.location.city}}</div>
+                                            <div>{{eventsession.location.state}}</div>
+                                        </address>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <!--OKKIO ALL'ORDINE!!!-->
+    <script src="http://code.angularjs.org/1.1.5/angular.min.js"></script>
+    <script src="js/modules/app.js"></script>
+    <script src="js/controllers/EventController.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+.sessionodd {
+  background-color: lightblue;
+}
+.sessioneven {
+  background-color: lightgreen;
+}
+
+.nobordertable {
+    border-collapse:collapse;
+}

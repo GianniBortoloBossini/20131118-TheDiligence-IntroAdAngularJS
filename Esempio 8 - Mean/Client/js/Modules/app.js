@@ -1,0 +1,1 @@
+var angAdvisorApp = angular.module('angAdvisorApp',[]);

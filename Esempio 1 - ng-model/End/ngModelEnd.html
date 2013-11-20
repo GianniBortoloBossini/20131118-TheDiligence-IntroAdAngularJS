@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app>
+    <head>
+        <title title="Using ng-model"></title>
+        <script src="http://code.angularjs.org/1.1.5/angular.min.js"></script>
+    </head>
+    
+    <body>
+        
+        Inserisci il tuo nome: <br/>
+        <input type="text" 
+               placeholder="Nome" 
+               ng-model="name"> <br/>
+        
+        Inserisci il tuo cognome: <br/>
+        <input type="text" 
+               placeholder="Cognome" 
+               ng-model="surname"> <br /><br />
+             
+        <h2>Benvenuto {{name}} {{surname}}!!!</h2>
+        
+        <input type="button" 
+               style="width:200px;height:50px"
+               value="Set Jimmy!"
+               ng-click="name = 'Jimmy'; surname = 'Hendrix'"/>
+    </body>
+</html>

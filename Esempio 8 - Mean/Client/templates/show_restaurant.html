@@ -1,0 +1,68 @@
+<h2>Gestisci il tuo ristorante</h2>
+
+<form role="form">
+  <div class="form-group">
+    <label for="restName">Nome del ristorante</label>
+    <input type="text" 
+           class="form-control" 
+           id="restName" 
+           placeholder="Inserisci il nome del ristorante" 
+           ng-model="manageRestaurant.name">
+  </div>
+  <div class="form-group">
+    <label for="restAddress">Indirizzo</label>
+    <input type="text" 
+           class="form-control" 
+           id="restAddress" 
+           placeholder="Inserisci via piazza e numero civico" 
+           ng-model="manageRestaurant.address">
+  </div>
+  <div class="form-group">
+    <label for="restPostalCode">CAP</label>
+    <input type="text" 
+           class="form-control" 
+           id="restPostalCode" 
+           placeholder="Inserisci il CAP" 
+           ng-model="manageRestaurant.postalCode">
+  </div>
+  <div class="form-group">
+    <label for="restCity">Città</label>
+    <input type="text" 
+           class="form-control" 
+           id="restCity" 
+           placeholder="Inserisci la città" 
+           ng-model="manageRestaurant.city">
+  </div>
+  <div class="form-group">
+    <label for="restProvince">Provincia</label>
+    <input type="text" 
+           class="form-control" 
+           id="restProvince" 
+           placeholder="Inserisci la provincia" 
+           ng-model="manageRestaurant.province">
+  </div>
+    <div class="form-group">
+    <label for="restState">Stato</label>
+    <input type="text" 
+           class="form-control"
+           id="restState" 
+           placeholder="Inserisci lo stato" 
+           ng-model="manageRestaurant.state">
+  </div>
+  <button type="submit" 
+          class="btn btn-default" 
+          ng-click="insertRestaurant()" 
+          ng-show="isNew">Salva</button>
+    <button type="submit" 
+            class="btn btn-default" 
+            ng-click="saveRestaurant()" 
+            ng-hide="isNew">Salva</button>
+    <button type="submit" 
+            class="btn btn-default" 
+            ng-click="deleteRestaurant()" 
+            ng-hide="isNew">Elimina</button>
+    <button type="submit" 
+            class="btn btn-default" 
+            ng-click="addCommentToRestaurant()"
+            ng-hide="isNew">Aggiungi commento</button>
+</form>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="sportIllustratedApp">
+    <head>
+        <title title="Using ng-model"></title>
+    </head>
+    
+    <style type="text/css">
+        ul { list-style-type: none ; }
+    </style>
+    
+    <body>
+        <div ng-init="players = [
+                      {name:'Mario', surname:'Yepes', age:37, gender:'male'},
+                      {name:'Mario', surname:'Balotelli', age:23, gender:'male'},
+                      {name:'Isolde', surname:'Kostner', age:38, gender:'female'},
+                      {name:'Lindsey', surname:'Vonn', age:29, gender:'female'},
+                      {name:'Giorgio', surname:'Rocca', age:38, gender:'male'},
+                      {name:'Marek', surname:'Hamsik', age:26, gender:'male'},
+                      {name:'Edinson', surname:'Cavani', age:26, gender:'male'},
+                      {name:'Federico', surname:'Cossato', age:41, gender:'male'},
+                      {name:'Federica', surname:'Pellegrini', age:25, gender:'female'}
+                      ]">
+            <label>Filtra per nome:</label><br/>
+            <input type="text" 
+                   placeholder="Filter" 
+                   ng-model="search.name" /><br/>
+            
+            <label>Filtra per cognome:</label><br/>
+            <input type="text" 
+                   placeholder="Filter" 
+                   ng-model="search.surname" /><br/>
+            
+            <label>Filtra per età:</label><br/>
+            <input type="text" 
+                   placeholder="Filter" 
+                   ng-model="search.age" /><br/>
+            
+            <label>Filtra per sesso:</label><br/>
+            <input type="text" 
+                   placeholder="Filter" 
+                   ng-model="search.gender" /><br/>
+            
+            <table>
+                <tr>
+                    <td>
+                        <h2>BUILT-IN FILTER</h2>
+            
+                        <ul>
+                            <li ng-repeat="player in players | orderBy:['name', 'age'] | filter:search">
+                                [{{$index + 1}}] {{player.name}}, {{player.surname}}, {{player.age}}, {{player.gender}}
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                        <h2>CUSTOM FILTER</h2>
+            
+                        <table>
+                            <tr ng-repeat="player in players | orderBy:['name', 'age'] | startWith:search">  
+                                <td>{{$index + 1}}</td>
+                                <td>{{player.name}}</td>
+                                <td>{{player.surname | uppercase}}</td> <!-- Filter UPPERCASE -->
+                                <td>{{player.age}}</td>
+                                <td>{{player.gender}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <script src="http://code.angularjs.org/1.1.5/angular.min.js"></script>
+        <script src="js/filters/filters.js"></script>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<h2>Aggiungi un commento al ristorante</h2>
+
+<form role="form">
+  <div class="form-group">
+    <label for="restName">Nome del recensore</label>
+    <input type="text" 
+           class="form-control" 
+           id="restName" 
+           placeholder="Inserisci il tuo nome e cognome" 
+           ng-model="reviewer.name">
+  </div>
+  <div class="form-group">
+    <label for="restComment">Commento</label>
+    <input type="text" 
+           class="form-control" 
+           id="restComment" 
+           placeholder="Inserisci un commento" 
+           ng-model="reviewer.comment">
+  </div>
+    <button type="submit" 
+            class="btn btn-default" 
+            ng-click="saveComment()">Salva</button>
+</form>

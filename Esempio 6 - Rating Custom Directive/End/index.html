@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="ratingStarsApp">
+    <head>
+        <title>Rating Directive Demo</title>
+        <link rel="stylesheet" href="styles/rating.css"/>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+        <script type="text/javascript" src="js/modules/ratingStarsApp.js"></script>
+        <script type="text/javascript" src="js/controllers/ratingStarsController.js"></script>
+        <script type="text/javascript" src="js/directives/ratingStarsDirective.js"></script>
+    </head>
+    <body ng-controller="ratingStarsController">
+        <input type="button" 
+               ng-click="downVote(rating)" 
+               ng-disabled="disableDownVoting()" 
+               value="-">
+        <input type="button" 
+               ng-click="upVote(rating)" 
+               ng-disabled="disableUpVoting()" 
+               value="+"><br /><br />
+        
+        Rating is {{rating}} <br/>
+        Clickable Rating <br/>
+        
+        <div rating-Stars 
+             rating-value="rating" 
+             max="10"
+             on-rating-selected="saveRatingToServer(rating)" 
+             autofocus>
+        </div>
+        
+        <br/>
+        
+        Readonly rating <br/>
+        
+        <rating-Stars  
+             rating-value="rating" 
+             max="10" 
+             readonly="true">
+        </rating-Stars>
+    </body>
+</html>

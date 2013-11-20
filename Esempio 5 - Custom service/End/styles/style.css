@@ -1,0 +1,19 @@
+.sessionodd {
+  background-color: lightblue;
+}
+.sessioneven {
+  background-color: lightgreen;
+}
+
+.nobordertable {
+    border-collapse:collapse;
+}
+.voteButton {
+    width:30px;
+    height:30px
+}
+.voteLabel {
+    display: block;
+    width:30px;
+    text-align: center;
+}

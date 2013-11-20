@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <title>angAdvisor</title>
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+        <script src="http://code.angularjs.org/1.1.5/angular.min.js"></script>
+        <script src="http://code.angularjs.org/1.2.1/angular-route.min.js"></script>
+        <script type="text/javascript" src="http://cdn.jsdelivr.net/restangular/latest/restangular.min.js"></script>
+        <script type="text/javascript" src="http://cdn.jsdelivr.net/lodash/2.1.0/lodash.compat.min.js"></script>
+        <script src="js/Modules/app.js"></script>
+        <script src="js/Routing/appRouting.js"></script>
+        <script src="js/Controllers/AddCommentCtrl.js"></script>
+        <script src="js/Controllers/HomeCtrl.js"></script>
+        <script src="js/Controllers/RestaurantCtrl.js"></script>
+        <script src="js/Controllers/RestaurantsCtrl.js"></script>
+  </head>
+ 
+  <body ng-app="angAdvisorApp">
+ 
+    <div class="container">
+        <div class="row">
+        <div class="col-md-3">
+            <ul class="nav">
+                <li><a href="#/"> Home </a></li>
+                <li><a href="#/restaurants"> Ristoranti </a></li>
+                <li><a href="#/restaurants/new"> Aggiungi Ristorante </a></li>
+            </ul>
+        </div>
+        <div class="col-md-9">
+            <div ng-view></div>
+        </div>
+        </div>
+    </div>
+  </body>
+</html>
